@@ -11,3 +11,11 @@ jobs:
           node-version: '8.x'
       - name: build 
         run: npm install && npm test && npm run build
+      #Exo 2 : build docker image
+      - name: docker build
+        env:
+          repo: repoSarah
+          image: sarahImage
+          tag: v1
+          dockerfile_name: Dockerfile
+        run: docker build -t $repo/$image:$tag -f $dockerfile_name .
