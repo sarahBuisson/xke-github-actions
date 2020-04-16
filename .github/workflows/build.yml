@@ -1,0 +1,11 @@
+name: kata github action
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      #Exo 1
+      - uses : action/checkout
+      - uses: action/setup-nodejs 
+      - name: build 
+        run: npm install && npm test && npm run build
