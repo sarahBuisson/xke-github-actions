@@ -14,7 +14,7 @@ jobs:
       #Exo 2 : build docker image
       - name: docker build
         env:
-          repo: repoSarah
+          repo: reposarah
           image: sarahImage
           tag: ${{github.ref}}
           dockerfile_name: Dockerfile
