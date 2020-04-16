@@ -15,7 +15,7 @@ jobs:
       - name: docker build
         env:
           repo: reposarah
-          image: sarahImage
+          image: sarahimage
           tag: ${{github.ref}}
           dockerfile_name: Dockerfile
         run: |
