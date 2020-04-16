@@ -19,9 +19,9 @@ jobs:
           tag: ${{github.ref}}
           dockerfile_name: Dockerfile
         run: |
-          docker build -t $repo/$image:${tag#/refs/heads} -f $dockerfile_name .
-          echo "::set-output name=docker_tag:: $repo/$image:${tag#/refs/heads}"
-          echo "::set-env name=some_env:: $repo/$image:${tag#/refs/heads}"
+          docker build -t $repo/$image:${tag#refs/heads} -f $dockerfile_name .
+          echo "::set-output name=docker_tag:: $repo/$image:${tag#refs/heads}"
+          echo "::set-env name=some_env:: $repo/$image:${tag#refs/heads}"
 
       - name: echo
         run: |
