@@ -19,9 +19,9 @@ jobs:
           tag: ${{github.ref}}
           dockerfile_name: Dockerfile
         run: |
-          docker build -t $repo/$image:$tag -f $dockerfile_name .
-          echo "::set-output name=docker_tag::$DOCKER_REGISTRY/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-$GITHUB_SHA"
-          echo "::set-env name=some_env::$DOCKER_REGISTRY/$DOCKER_NAMESPACE/$DOCKER_IMAGE:${BRANCH#refs/heads/}-$GITHUB_SHA"
+          docker build -t $repo/$image:${tag/refs/heads} -f $dockerfile_name .
+          echo "::set-output name=docker_tag:: $repo/$image:${tag/refs/heads}"
+          echo "::set-env name=some_env:: $repo/$image:${tag/refs/heads}"
 
       - name: echo
         run: |
